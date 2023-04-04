@@ -22,3 +22,5 @@ Un TP sera réalisé au fur et à mesure de chaque module. En partant d'un proje
 Nous créérons une application blanche via Spring-Boot et l'interface Spring-Initializer. Nous exposerons les principaux avantages d'une configuration via Spring-Boot plutôt qu'une configuration maison, l'ajout des "starters", le déploiement d'un serveur Tomcat embarqué, etc.
 
 Enfin, nous mettrons en oeuvre de la persistance avec Spring-Data. Spring-Data suppose la maîtrise d'Hibernate et du JPQL, mais son abord assez intuitif devrait pouvoir se faire. Nous concluerons par la mise en place d'une API avec Spring-REST pour exposer les données et permettre la modification de celles-ci.
+
+Pour le contenu théorique nous nous inspirerons du site suivant : https://gayerie.dev/docs/spring/index.html

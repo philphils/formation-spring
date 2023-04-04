@@ -2,7 +2,7 @@
 
 ## Objectifs
 
-Spring est un framework Java utilisé à l’Insee et ailleurs depuis maintenant plus de 10 ans. La "galaxie" Spring s'est constituée autour d'un noyau initial  permettant de mettre en œuvre et de gérer « l’injection de dépendance », principe permettant de réduire l'adhérence des différentes couches du code applicatif (notion vue plus en profondeur dans la formation). Autour de ce noyau initial se sont peu à peu greffés de nombreux autres outils.
+Spring est un ensemble de frameworks Java utilisé à l’Insee et ailleurs depuis maintenant plus de 10 ans. La "galaxie" Spring s'est constituée autour d'un noyau initial  permettant de mettre en œuvre et de gérer « l’injection de dépendance », principe permettant de réduire l'adhérence des différentes couches du code applicatif (notion vue plus en profondeur dans la formation). Autour de ce noyau initial se sont peu à peu greffés de nombreux autres outils.
 
 Un exposé exhaustif des frameworks Spring est impossible et ne répondrait pas au besoin de formation des débutants. Voici donc les différents modules de Spring que cette formation se propose d'aborder dans l'ordre :
 

@@ -17,6 +17,8 @@ La formation s'étalera sur 3 journées. Un exposé exhaustif des fonctionnalit�
 
 ## Travaux pratiques
 
+L'objectif sera au fur et à mesure des TPs de constituer une mini "API-Sirene", comportant quelques endpoints permettant la création, suppression, modification ou consultation d'une entreprise, ainsi que quelques services.
+
 Nous ferons évoluer un projet-TP au fur et à mesure de chaque module. En partant d'un projet sans Spring nous introduirons l'injection de dépendances. Nous exposerons les possibilités de configuration via XML pour ensuite lui préférer une configuration via annotations.
 
 Nous créérons une application blanche via Spring-Boot et l'interface Spring-Initializer. Nous exposerons les principaux avantages d'une configuration via Spring-Boot plutôt qu'une configuration maison, l'ajout des "starters", le déploiement d'un serveur Tomcat embarqué, etc.

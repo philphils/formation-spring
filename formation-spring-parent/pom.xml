@@ -104,6 +104,19 @@
 			<artifactId>javax.annotation-api</artifactId>
 			<version>${javax-annotation.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${javax-annotation.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.github.javafaker</groupId>
+		    <artifactId>javafaker</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+		
 	</dependencies>
 
 </project>

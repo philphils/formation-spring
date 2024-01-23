@@ -1,0 +1,93 @@
+package org.formation.spring.core.persistence.dao;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.formation.spring.core.persistence.dao.SecteurDaoImpl;
+import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.model.Secteur;
+import org.formation.spring.core.persistence.model.generator.ModelGenerator;
+import org.junit.After;
+import org.junit.Test;
+
+public class SecteurDaoTest {
+
+	private ModelGenerator generator = new ModelGenerator();
+
+	private SecteurDaoImpl dao = new SecteurDaoImpl();
+
+	@After
+	public void afterEachTest() {
+		LocalDataBase.access.getSecteurs().clear();
+	}
+
+	@Test
+	public void getSecteurById() {
+		// GIVEN
+		Secteur secteur = generator.generateSecteur();
+		LocalDataBase.access.getSecteurs().add(secteur);
+
+		// WHEN
+		Secteur returnedSecteur = dao.getById(secteur.getId());
+
+		// THEN
+		assertEquals(secteur, returnedSecteur);
+	}
+
+	@Test
+	public void getAll() {
+		// GIVEN
+		Secteur secteur1 = generator.generateSecteur();
+		Secteur secteur2 = generator.generateSecteur();
+		LocalDataBase.access.getSecteurs().add(secteur1);
+		LocalDataBase.access.getSecteurs().add(secteur2);
+
+		// WHEN
+		List<Secteur> returnedSecteurs = dao.getAll();
+
+		// THEN
+		assertEquals(2, returnedSecteurs.size());
+	}
+
+	@Test
+	public void deleteSecteur() {
+		// GIVEN
+		Secteur secteur = generator.generateSecteur();
+		LocalDataBase.access.getSecteurs().add(secteur);
+
+		// WHEN
+		dao.delete(secteur);
+
+		// THEN
+		assertEquals(0, LocalDataBase.access.getSecteurs().size());
+	}
+
+	@Test
+	public void createSecteur() {
+		// GIVEN
+		Secteur secteur = generator.generateSecteur();
+
+		// WHEN
+		dao.create(secteur);
+
+		// THEN
+		assertEquals(1, LocalDataBase.access.getSecteurs().size());
+	}
+
+	@Test
+	public void updateSecteur() {
+		// GIVEN
+		Secteur secteur = generator.generateSecteur();
+		LocalDataBase.access.getSecteurs().add(secteur);
+
+		// WHEN
+		secteur.setCodeNaf("-1");
+		Secteur updatedSecteur = dao.update(secteur);
+
+		// THEN
+		assertEquals(secteur, updatedSecteur);
+		assertEquals("-1", updatedSecteur.getCodeNaf());
+	}
+
+}

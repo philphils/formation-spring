@@ -9,10 +9,9 @@ public class ReservationSalleServiceImpl implements ReservationSalleService {
 	}
 
 	public void reserver(ReservationSalle reservationSalle) {
-		// faire un traitement nécessaire
-		// (par exemple la validation de la réservation)
-
-		// sauvegarder la réservation
+		// Traitement nécessaire à la réservation
+		// par exemple vérifier la disponibilité etc.
+		// Sauvegarde de la réservation
 		reservationSalleDao.sauver(reservationSalle);
 	}
 

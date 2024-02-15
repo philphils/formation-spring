@@ -45,7 +45,12 @@ public class EntrepriseServiceTest {
 		// THEN
 		assertThat(entreprise).hasNoNullFieldsOrProperties();
 		verify(mockedAdresseDao, times(1)).create(any(Adresse.class));
+		// Il n'y a pas d'injection de dépendance pour EntrepriseDao, il est crée à la volée dans la méthode
+		// On ne peut donc pas mocker EntrepriseDao
 		// FIXME On ne peut pas vérifier qu'une entreprise est crée en base
+		// Il n'y a pas d'injection de dépendance pour SecteurDao, il est instancié dans le constructeur
+		// On ne peut donc pas mocker SecteurDao
+		// FIXME On ne peut pas vérifier qu'un secteur a été crée en base
 
 	}
 

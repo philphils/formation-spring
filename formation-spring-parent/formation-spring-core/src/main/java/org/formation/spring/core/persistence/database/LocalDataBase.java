@@ -11,6 +11,8 @@ public class LocalDataBase {
 
 	public static final LocalDataBase access = new LocalDataBase();
 
+	private LocalDataBase() {}
+
 	private List<Entreprise> entreprises = new ArrayList<>();
 
 	private List<Adresse> adresses = new ArrayList<>();
@@ -29,4 +31,13 @@ public class LocalDataBase {
 		return secteurs;
 	}
 
+	// TODO Faire les consignes
+	// Compléter les tests
+	// Revoir la forme du model generator
+	// Revoir l'EntrepriseServiceImpl
+	// Etape locator
+	// Remplacer le locator par spring avec annotations
+	// TODO Faire la correction
+	// TODO Prévoir un cas de Configuration et @Bean au niveau méthode pour la database ?
+	// TODO Prévoir une histoire de profile (optionnel) --> deux fonctionnement des daos
 }

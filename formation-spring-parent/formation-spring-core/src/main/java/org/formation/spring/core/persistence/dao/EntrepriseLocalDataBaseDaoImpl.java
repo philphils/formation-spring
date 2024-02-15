@@ -6,7 +6,7 @@ import java.util.Objects;
 import org.formation.spring.core.persistence.database.LocalDataBase;
 import org.formation.spring.core.persistence.model.Entreprise;
 
-public class EntrepriseDaoImpl implements EntrepriseDao {
+public class EntrepriseLocalDataBaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public Entreprise create(Entreprise entreprise) {

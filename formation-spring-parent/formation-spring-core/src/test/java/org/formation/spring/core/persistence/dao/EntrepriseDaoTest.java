@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.formation.spring.core.persistence.dao.EntrepriseDaoImpl;
+import org.formation.spring.core.persistence.dao.EntrepriseLocalDataBaseDaoImpl;
 import org.formation.spring.core.persistence.database.LocalDataBase;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.generator.ModelGenerator;
@@ -15,7 +15,7 @@ public class EntrepriseDaoTest {
 
 	private ModelGenerator generator = new ModelGenerator();
 
-	private EntrepriseDaoImpl dao = new EntrepriseDaoImpl();
+	private EntrepriseLocalDataBaseDaoImpl dao = new EntrepriseLocalDataBaseDaoImpl();
 
 	@After
 	public void afterEachTest() {

@@ -1,7 +1,7 @@
 package org.formation.spring.core.service;
 
 import org.formation.spring.core.persistence.dao.EntrepriseDao;
-import org.formation.spring.core.persistence.dao.EntrepriseDaoImpl;
+import org.formation.spring.core.persistence.dao.EntrepriseLocalDataBaseDaoImpl;
 import org.formation.spring.core.persistence.dao.ModelDao;
 import org.formation.spring.core.persistence.dao.SecteurDaoImpl;
 import org.formation.spring.core.persistence.model.Adresse;
@@ -39,7 +39,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 		}
 		entreprise.setSecteur(secteur);
 		
-		EntrepriseDao entrepriseDao = new EntrepriseDaoImpl();
+		EntrepriseDao entrepriseDao = new EntrepriseLocalDataBaseDaoImpl();
 		entrepriseDao.create(entreprise);
 
 		return entreprise;

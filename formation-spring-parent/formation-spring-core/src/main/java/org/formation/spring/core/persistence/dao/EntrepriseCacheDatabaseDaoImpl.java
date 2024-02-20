@@ -3,15 +3,15 @@ package org.formation.spring.core.persistence.dao;
 import java.util.List;
 import java.util.Objects;
 
-import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.database.CacheDataBase;
 import org.formation.spring.core.persistence.model.Entreprise;
 
-public class EntrepriseLocalDataBaseDaoImpl implements EntrepriseDao {
+public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public Entreprise create(Entreprise entreprise) {
-		if (LocalDataBase.access.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
-			LocalDataBase.access.getEntreprises().add(entreprise);
+		if (CacheDataBase.access.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
+			CacheDataBase.access.getEntreprises().add(entreprise);
 		} else {
 			throw new IllegalArgumentException("Une entreprise avec cet id existe déjà");
 		}
@@ -20,12 +20,12 @@ public class EntrepriseLocalDataBaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public void delete(Entreprise entreprise) {
-		Entreprise entrepriseASupprimer = LocalDataBase.access.getEntreprises()
+		Entreprise entrepriseASupprimer = CacheDataBase.access.getEntreprises()
 				.stream()
 				.filter(e -> e.getId() == entreprise.getId())
 				.findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune entreprise avec cet id n'existe"));
-		LocalDataBase.access.getEntreprises().remove(entrepriseASupprimer);
+		CacheDataBase.access.getEntreprises().remove(entrepriseASupprimer);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class EntrepriseLocalDataBaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public Entreprise getBySiren(String siren) {
-		return LocalDataBase.access.getEntreprises()
+		return CacheDataBase.access.getEntreprises()
 				.stream()
 				.filter(e -> Objects.equals(e.getSiren(), siren))
 				.findAny()
@@ -44,12 +44,12 @@ public class EntrepriseLocalDataBaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public List<Entreprise> getAll() {
-		return LocalDataBase.access.getEntreprises();
+		return CacheDataBase.access.getEntreprises();
 	}
 
 	@Override
 	public Entreprise getById(int id) {
-		return LocalDataBase.access.getEntreprises()
+		return CacheDataBase.access.getEntreprises()
 				.stream()
 				.filter(e -> e.getId() == id)
 				.findAny()

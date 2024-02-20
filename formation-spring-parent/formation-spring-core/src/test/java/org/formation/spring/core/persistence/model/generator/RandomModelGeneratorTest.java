@@ -7,9 +7,9 @@ import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.junit.Test;
 
-public class ModelGeneratorTest {
+public class RandomModelGeneratorTest {
 
-	ModelGenerator generator = new ModelGenerator();
+	RandomModelGenerator generator = new RandomModelGenerator();
 
 	@Test
 	public void generateEntreprise() {

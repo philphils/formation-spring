@@ -4,29 +4,29 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.formation.spring.core.persistence.dao.EntrepriseLocalDataBaseDaoImpl;
-import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.dao.EntrepriseCacheDatabaseDaoImpl;
+import org.formation.spring.core.persistence.database.CacheDataBase;
 import org.formation.spring.core.persistence.model.Entreprise;
-import org.formation.spring.core.persistence.model.generator.ModelGenerator;
+import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Test;
 
-public class EntrepriseDaoTest {
+public class EntrepriseCacheDatabaseDaoImplTest {
 
-	private ModelGenerator generator = new ModelGenerator();
+	private RandomModelGenerator generator = new RandomModelGenerator();
 
-	private EntrepriseLocalDataBaseDaoImpl dao = new EntrepriseLocalDataBaseDaoImpl();
+	private EntrepriseCacheDatabaseDaoImpl dao = new EntrepriseCacheDatabaseDaoImpl();
 
 	@After
 	public void afterEachTest() {
-		LocalDataBase.access.getEntreprises().clear();
+		CacheDataBase.access.getEntreprises().clear();
 	}
 
 	@Test
 	public void getEntrepriseById() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		LocalDataBase.access.getEntreprises().add(entreprise);
+		CacheDataBase.access.getEntreprises().add(entreprise);
 
 		// WHEN
 		Entreprise returnedEntreprise = dao.getById(entreprise.getId());
@@ -39,7 +39,7 @@ public class EntrepriseDaoTest {
 	public void getEntrepriseBySiren() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		LocalDataBase.access.getEntreprises().add(entreprise);
+		CacheDataBase.access.getEntreprises().add(entreprise);
 
 		// WHEN
 		Entreprise returnedEntreprise = dao.getBySiren(entreprise.getSiren());
@@ -53,8 +53,8 @@ public class EntrepriseDaoTest {
 		// GIVEN
 		Entreprise entreprise1 = generator.generateEntreprise();
 		Entreprise entreprise2 = generator.generateEntreprise();
-		LocalDataBase.access.getEntreprises().add(entreprise1);
-		LocalDataBase.access.getEntreprises().add(entreprise2);
+		CacheDataBase.access.getEntreprises().add(entreprise1);
+		CacheDataBase.access.getEntreprises().add(entreprise2);
 
 		// WHEN
 		List<Entreprise> returnedEntreprises = dao.getAll();
@@ -67,13 +67,13 @@ public class EntrepriseDaoTest {
 	public void deleteEntreprise() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		LocalDataBase.access.getEntreprises().add(entreprise);
+		CacheDataBase.access.getEntreprises().add(entreprise);
 
 		// WHEN
 		dao.delete(entreprise);
 
 		// THEN
-		assertEquals(0, LocalDataBase.access.getEntreprises().size());
+		assertEquals(0, CacheDataBase.access.getEntreprises().size());
 	}
 
 	@Test
@@ -85,14 +85,14 @@ public class EntrepriseDaoTest {
 		dao.create(entreprise);
 
 		// THEN
-		assertEquals(1, LocalDataBase.access.getEntreprises().size());
+		assertEquals(1, CacheDataBase.access.getEntreprises().size());
 	}
 
 	@Test
 	public void updateEntreprise() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		LocalDataBase.access.getEntreprises().add(entreprise);
+		CacheDataBase.access.getEntreprises().add(entreprise);
 
 		// WHEN
 		entreprise.setSiren("-1");

@@ -2,15 +2,15 @@ package org.formation.spring.core.persistence.dao;
 
 import java.util.List;
 
-import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.database.CacheDataBase;
 import org.formation.spring.core.persistence.model.Adresse;
 
-public class AdresseDaoImpl implements ModelDao<Adresse> {
+public class AdresseCacheDatabaseDaoImpl implements ModelDao<Adresse> {
 
 	@Override
 	public Adresse create(Adresse adresse) {
-		if (LocalDataBase.access.getAdresses().stream().noneMatch(e -> e.getId() == adresse.getId())) {
-			LocalDataBase.access.getAdresses().add(adresse);
+		if (CacheDataBase.access.getAdresses().stream().noneMatch(e -> e.getId() == adresse.getId())) {
+			CacheDataBase.access.getAdresses().add(adresse);
 		} else {
 			throw new IllegalArgumentException("Une adresse avec cet id existe déjà");
 		}
@@ -19,12 +19,12 @@ public class AdresseDaoImpl implements ModelDao<Adresse> {
 
 	@Override
 	public void delete(Adresse adresse) {
-		Adresse adresseASupprimer = LocalDataBase.access.getAdresses()
+		Adresse adresseASupprimer = CacheDataBase.access.getAdresses()
 				.stream()
 				.filter(e -> e.getId() == adresse.getId())
 				.findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune adresse avec cet id n'existe"));
-		LocalDataBase.access.getAdresses().remove(adresseASupprimer);
+		CacheDataBase.access.getAdresses().remove(adresseASupprimer);
 	}
 
 	@Override
@@ -34,12 +34,12 @@ public class AdresseDaoImpl implements ModelDao<Adresse> {
 
 	@Override
 	public List<Adresse> getAll() {
-		return LocalDataBase.access.getAdresses();
+		return CacheDataBase.access.getAdresses();
 	}
 
 	@Override
 	public Adresse getById(int id) {
-		return LocalDataBase.access.getAdresses()
+		return CacheDataBase.access.getAdresses()
 				.stream()
 				.filter(e -> e.getId() == id)
 				.findAny()

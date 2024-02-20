@@ -7,11 +7,11 @@ import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 
-public class LocalDataBase {
+public class CacheDataBase {
 
-	public static final LocalDataBase access = new LocalDataBase();
+	public static final CacheDataBase access = new CacheDataBase();
 
-	private LocalDataBase() {}
+	private CacheDataBase() {}
 
 	private List<Entreprise> entreprises = new ArrayList<>();
 
@@ -31,13 +31,4 @@ public class LocalDataBase {
 		return secteurs;
 	}
 
-	// TODO Faire les consignes
-	// Compléter les tests
-	// Revoir la forme du model generator
-	// Revoir l'EntrepriseServiceImpl
-	// Etape locator
-	// Remplacer le locator par spring avec annotations
-	// TODO Faire la correction
-	// TODO Prévoir un cas de Configuration et @Bean au niveau méthode pour la database ?
-	// TODO Prévoir une histoire de profile (optionnel) --> deux fonctionnement des daos
 }

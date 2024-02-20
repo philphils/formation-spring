@@ -4,29 +4,29 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.formation.spring.core.persistence.dao.SecteurDaoImpl;
-import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.dao.SecteurCacheDatabaseDaoImpl;
+import org.formation.spring.core.persistence.database.CacheDataBase;
 import org.formation.spring.core.persistence.model.Secteur;
-import org.formation.spring.core.persistence.model.generator.ModelGenerator;
+import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Test;
 
-public class SecteurDaoTest {
+public class SecteurCacheDatabaseDaoImplTest {
 
-	private ModelGenerator generator = new ModelGenerator();
+	private RandomModelGenerator generator = new RandomModelGenerator();
 
-	private SecteurDaoImpl dao = new SecteurDaoImpl();
+	private SecteurCacheDatabaseDaoImpl dao = new SecteurCacheDatabaseDaoImpl();
 
 	@After
 	public void afterEachTest() {
-		LocalDataBase.access.getSecteurs().clear();
+		CacheDataBase.access.getSecteurs().clear();
 	}
 
 	@Test
 	public void getSecteurById() {
 		// GIVEN
 		Secteur secteur = generator.generateSecteur();
-		LocalDataBase.access.getSecteurs().add(secteur);
+		CacheDataBase.access.getSecteurs().add(secteur);
 
 		// WHEN
 		Secteur returnedSecteur = dao.getById(secteur.getId());
@@ -40,8 +40,8 @@ public class SecteurDaoTest {
 		// GIVEN
 		Secteur secteur1 = generator.generateSecteur();
 		Secteur secteur2 = generator.generateSecteur();
-		LocalDataBase.access.getSecteurs().add(secteur1);
-		LocalDataBase.access.getSecteurs().add(secteur2);
+		CacheDataBase.access.getSecteurs().add(secteur1);
+		CacheDataBase.access.getSecteurs().add(secteur2);
 
 		// WHEN
 		List<Secteur> returnedSecteurs = dao.getAll();
@@ -54,13 +54,13 @@ public class SecteurDaoTest {
 	public void deleteSecteur() {
 		// GIVEN
 		Secteur secteur = generator.generateSecteur();
-		LocalDataBase.access.getSecteurs().add(secteur);
+		CacheDataBase.access.getSecteurs().add(secteur);
 
 		// WHEN
 		dao.delete(secteur);
 
 		// THEN
-		assertEquals(0, LocalDataBase.access.getSecteurs().size());
+		assertEquals(0, CacheDataBase.access.getSecteurs().size());
 	}
 
 	@Test
@@ -72,14 +72,14 @@ public class SecteurDaoTest {
 		dao.create(secteur);
 
 		// THEN
-		assertEquals(1, LocalDataBase.access.getSecteurs().size());
+		assertEquals(1, CacheDataBase.access.getSecteurs().size());
 	}
 
 	@Test
 	public void updateSecteur() {
 		// GIVEN
 		Secteur secteur = generator.generateSecteur();
-		LocalDataBase.access.getSecteurs().add(secteur);
+		CacheDataBase.access.getSecteurs().add(secteur);
 
 		// WHEN
 		secteur.setCodeNaf("-1");

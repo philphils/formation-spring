@@ -5,18 +5,18 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import org.formation.spring.core.persistence.dao.AdresseDaoImpl;
+import org.formation.spring.core.persistence.dao.AdresseCacheDatabaseDaoImpl;
 import org.formation.spring.core.persistence.dao.ModelDao;
-import org.formation.spring.core.persistence.database.LocalDataBase;
+import org.formation.spring.core.persistence.database.CacheDataBase;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
-import org.formation.spring.core.persistence.model.generator.ModelGenerator;
+import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class EntrepriseServiceTest {
+public class EntrepriseServiceImplTest {
 
 	private ModelDao<Adresse> mockedAdresseDao;
 
@@ -24,15 +24,15 @@ public class EntrepriseServiceTest {
 
 	@Before
 	public void setUp() {
-		this.mockedAdresseDao = Mockito.mock(AdresseDaoImpl.class);
+		this.mockedAdresseDao = Mockito.mock(AdresseCacheDatabaseDaoImpl.class);
 		this.service = new EntrepriseServiceImpl(mockedAdresseDao);
 	}
 
 	@After
 	public void clearDatabase() {
-		LocalDataBase.access.getAdresses().clear();
-		LocalDataBase.access.getEntreprises().clear();
-		LocalDataBase.access.getSecteurs().clear();
+		CacheDataBase.access.getAdresses().clear();
+		CacheDataBase.access.getEntreprises().clear();
+		CacheDataBase.access.getSecteurs().clear();
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class EntrepriseServiceTest {
 	@Test
 	public void createRandomEntrepriseWhenSecteurExists() {
 		// GIVEN
-		LocalDataBase.access.getSecteurs().add(new ModelGenerator().generateSecteur());
+		CacheDataBase.access.getSecteurs().add(new RandomModelGenerator().generateSecteur());
 
 		// WHEN
 		Entreprise entreprise = service.createRandomEntreprise();

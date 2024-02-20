@@ -3,15 +3,23 @@ package org.formation.spring.core.persistence.dao;
 import java.util.List;
 import java.util.Objects;
 
-import org.formation.spring.core.persistence.database.CacheDataBase;
+import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
+
+	private CacheDatabase database;
+
+	public EntrepriseCacheDatabaseDaoImpl(CacheDatabase database) {
+		this.database = database;
+	}
 
 	@Override
 	public Entreprise create(Entreprise entreprise) {
-		if (CacheDataBase.access.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
-			CacheDataBase.access.getEntreprises().add(entreprise);
+		if (database.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
+			database.getEntreprises().add(entreprise);
 		} else {
 			throw new IllegalArgumentException("Une entreprise avec cet id existe déjà");
 		}
@@ -20,12 +28,12 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public void delete(Entreprise entreprise) {
-		Entreprise entrepriseASupprimer = CacheDataBase.access.getEntreprises()
+		Entreprise entrepriseASupprimer = database.getEntreprises()
 				.stream()
 				.filter(e -> e.getId() == entreprise.getId())
 				.findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune entreprise avec cet id n'existe"));
-		CacheDataBase.access.getEntreprises().remove(entrepriseASupprimer);
+		database.getEntreprises().remove(entrepriseASupprimer);
 	}
 
 	@Override
@@ -35,7 +43,7 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public Entreprise getBySiren(String siren) {
-		return CacheDataBase.access.getEntreprises()
+		return database.getEntreprises()
 				.stream()
 				.filter(e -> Objects.equals(e.getSiren(), siren))
 				.findAny()
@@ -44,12 +52,12 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public List<Entreprise> getAll() {
-		return CacheDataBase.access.getEntreprises();
+		return database.getEntreprises();
 	}
 
 	@Override
 	public Entreprise getById(int id) {
-		return CacheDataBase.access.getEntreprises()
+		return database.getEntreprises()
 				.stream()
 				.filter(e -> e.getId() == id)
 				.findAny()

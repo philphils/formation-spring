@@ -7,7 +7,7 @@ import static org.mockito.Mockito.verify;
 
 import org.formation.spring.core.persistence.dao.AdresseCacheDatabaseDaoImpl;
 import org.formation.spring.core.persistence.dao.ModelDao;
-import org.formation.spring.core.persistence.database.CacheDataBase;
+import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
@@ -30,9 +30,9 @@ public class EntrepriseServiceImplTest {
 
 	@After
 	public void clearDatabase() {
-		CacheDataBase.access.getAdresses().clear();
-		CacheDataBase.access.getEntreprises().clear();
-		CacheDataBase.access.getSecteurs().clear();
+		CacheDatabase.access.getAdresses().clear();
+		CacheDatabase.access.getEntreprises().clear();
+		CacheDatabase.access.getSecteurs().clear();
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class EntrepriseServiceImplTest {
 	@Test
 	public void createRandomEntrepriseWhenSecteurExists() {
 		// GIVEN
-		CacheDataBase.access.getSecteurs().add(new RandomModelGenerator().generateSecteur());
+		CacheDatabase.access.getSecteurs().add(new RandomModelGenerator().generateSecteur());
 
 		// WHEN
 		Entreprise entreprise = service.createRandomEntreprise();

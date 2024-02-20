@@ -7,11 +7,7 @@ import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 
-public class CacheDataBase {
-
-	public static final CacheDataBase access = new CacheDataBase();
-
-	private CacheDataBase() {}
+public class CacheDatabase {
 
 	private List<Entreprise> entreprises = new ArrayList<>();
 

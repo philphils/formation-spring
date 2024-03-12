@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Secteur;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,7 +11,7 @@ public class SecteurCacheDatabaseDaoImpl implements ModelDao<Secteur> {
 
 	private CacheDatabase database;
 
-	@Autowired
+	// A partir de la version 4.3 de spring, @Autowired sur le constructeur est implicite si le constructeur est unique
 	public SecteurCacheDatabaseDaoImpl(CacheDatabase database) {
 		this.database = database;
 	}

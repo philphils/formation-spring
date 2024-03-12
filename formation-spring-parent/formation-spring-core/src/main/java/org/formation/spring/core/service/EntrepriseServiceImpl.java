@@ -5,7 +5,6 @@ import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.ModelGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 	@Qualifier(value = "arthur")
 	private final ModelGenerator modelGenerator;
 
-	@Autowired
+	// A partir de la version 4.3 de spring, @Autowired sur le constructeur est implicite si le constructeur est unique
 	public EntrepriseServiceImpl(ModelDao<Adresse> adresseDao, ModelDao<Secteur> secteurDao,
 			ModelDao<Entreprise> entrepriseDao, ModelGenerator modelGenerator) {
 		this.secteurDao = secteurDao;

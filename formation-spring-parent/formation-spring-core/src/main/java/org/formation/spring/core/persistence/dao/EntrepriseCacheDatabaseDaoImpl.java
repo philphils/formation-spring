@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,7 +12,7 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	private CacheDatabase database;
 
-	@Autowired
+	// A partir de la version 4.3 de spring, @Autowired sur le constructeur est implicite si le constructeur est unique
 	public EntrepriseCacheDatabaseDaoImpl(CacheDatabase database) {
 		this.database = database;
 	}

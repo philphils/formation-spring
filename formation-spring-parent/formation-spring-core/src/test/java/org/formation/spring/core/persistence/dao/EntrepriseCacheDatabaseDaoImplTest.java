@@ -4,18 +4,26 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.formation.spring.core.CoreApplication;
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+// Pour lancer un test d'intégration spring avec JUnit4, pour jupiter, utiliser @ExtendWith(SpringExtension.class)
 @RunWith(SpringJUnit4ClassRunner.class)
+// On doit déclarer le contexte spring du test, ici on se réfère à la configuration applicative entière
+@ContextConfiguration(classes = CoreApplication.class)
 public class EntrepriseCacheDatabaseDaoImplTest {
 
+	@Autowired
 	private EntrepriseCacheDatabaseDaoImpl dao;
 
+	@Autowired
 	private CacheDatabase database;
 
 	@After

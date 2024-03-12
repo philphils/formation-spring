@@ -4,5 +4,5 @@ import org.formation.spring.core.persistence.model.Entreprise;
 
 public interface EntrepriseService {
 
-	public Entreprise createRandomEntreprise();
+	public Entreprise createNewEntreprise();
 }

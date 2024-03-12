@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,6 +13,7 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	private CacheDatabase database;
 
+	@Autowired
 	public EntrepriseCacheDatabaseDaoImpl(CacheDatabase database) {
 		this.database = database;
 	}

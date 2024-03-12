@@ -7,17 +7,21 @@ import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.enumeration.FormeJuridique;
 import org.formation.spring.core.persistence.model.enumeration.TypeVoie;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 
 @Component
+// Plusieurs Beans de type ModelGenerator sont crées, il faut déclarer celui par défaut quand aucun n'est renseigné
+@Primary
 public class RandomModelGenerator implements ModelGenerator {
 
 	private final Faker faker;
 
 	private final Random random;
 
+	// A partir de la version 4.3 de spring, @Autowired sur le constructeur est implicite si le constructeur est unique
 	public RandomModelGenerator(Faker faker, Random random) {
 		this.faker = faker;
 		this.random = random;

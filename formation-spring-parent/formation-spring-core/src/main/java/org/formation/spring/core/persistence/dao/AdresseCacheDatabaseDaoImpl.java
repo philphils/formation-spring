@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -11,6 +12,7 @@ public class AdresseCacheDatabaseDaoImpl implements ModelDao<Adresse> {
 
 	private CacheDatabase database;
 
+	@Autowired
 	public AdresseCacheDatabaseDaoImpl(CacheDatabase database) {
 		this.database = database;
 	}

@@ -5,18 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.insee.config.InseeConfig;
-import fr.insee.config.exception.PoolException;
+import fr.insee.sd44configuration.SD44Configuration;
+import fr.insee.sd44configuration.exception.InseeDataSourceException;
 
 /**
  * Hello world!
  *
  */
 public class TestConnexionMainBatch {
-	public static void main(String[] args) throws PoolException, SQLException {
+	public static void main(String[] args) throws SQLException, InseeDataSourceException {
 		System.out.println("Hello World!");
 
-		Connection con = InseeConfig.getPool().getConnection("database_pool");
+		Connection con = SD44Configuration.getInstance().getConnection("database_pool");
 
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("select 1");

@@ -1,38 +1,51 @@
 package org.formation.spring.core.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import org.formation.spring.core.persistence.dao.AdresseCacheDatabaseDaoImpl;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.formation.spring.core.persistence.dao.EntrepriseDao;
 import org.formation.spring.core.persistence.dao.ModelDao;
-import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
+import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class EntrepriseServiceImplTest {
 
+	@Mock
+	private ModelDao<Secteur> mockedSecteurDao;
+
+	@Mock
 	private ModelDao<Adresse> mockedAdresseDao;
+
+	@Mock
+	private EntrepriseDao mockedEntrepriseDao;
+
+	@Mock
+	private RandomModelGenerator mockedRandomModelGenerator;
 
 	private EntrepriseService service;
 
 	@Before
 	public void setUp() {
-		this.mockedAdresseDao = Mockito.mock(AdresseCacheDatabaseDaoImpl.class);
-		this.service = new EntrepriseServiceImpl(mockedAdresseDao);
-	}
+		this.service = new EntrepriseServiceImpl(mockedSecteurDao, mockedAdresseDao, mockedRandomModelGenerator,
+				mockedEntrepriseDao);
 
-	@After
-	public void clearDatabase() {
-		CacheDatabase.access.getAdresses().clear();
-		CacheDatabase.access.getEntreprises().clear();
-		CacheDatabase.access.getSecteurs().clear();
+		when(mockedRandomModelGenerator.generateEntreprise()).thenReturn(new Entreprise());
+		when(mockedRandomModelGenerator.generateAdresse()).thenReturn(new Adresse());
+		when(mockedRandomModelGenerator.generateSecteur()).thenReturn(new Secteur());
+
 	}
 
 	@Test
@@ -43,30 +56,36 @@ public class EntrepriseServiceImplTest {
 		Entreprise entreprise = service.createRandomEntreprise();
 
 		// THEN
-		assertThat(entreprise).hasNoNullFieldsOrProperties();
-		verify(mockedAdresseDao, times(1)).create(any(Adresse.class));
-		// Il n'y a pas d'injection de dépendance pour EntrepriseDao, il est crée à la volée dans la méthode
+		verify(mockedAdresseDao).create(any(Adresse.class));
+		// Il n'y a pas d'injection de dépendance pour EntrepriseDao, il est crée à la
+		// volée dans la méthode
 		// On ne peut donc pas mocker EntrepriseDao
 		// FIXME On ne peut pas vérifier qu'une entreprise est crée en base
-		// Il n'y a pas d'injection de dépendance pour SecteurDao, il est instancié dans le constructeur
+		verify(mockedEntrepriseDao).create(any(Entreprise.class));
+		// Il n'y a pas d'injection de dépendance pour SecteurDao, il est instancié dans
+		// le constructeur
 		// On ne peut donc pas mocker SecteurDao
 		// FIXME On ne peut pas vérifier qu'un secteur a été crée en base
+		verify(mockedSecteurDao).create(any(Secteur.class));
 
 	}
 
 	@Test
 	public void createRandomEntrepriseWhenSecteurExists() {
 		// GIVEN
-		CacheDatabase.access.getSecteurs().add(new RandomModelGenerator().generateSecteur());
+		List<Secteur> secteurs = new ArrayList<>();
+		secteurs.add(new Secteur());
+		when(mockedSecteurDao.getAll()).thenReturn(secteurs);
 
 		// WHEN
 		Entreprise entreprise = service.createRandomEntreprise();
 
 		// THEN
-		assertThat(entreprise).hasNoNullFieldsOrProperties();
-		verify(mockedAdresseDao, times(1)).create(any(Adresse.class));
+		verify(mockedAdresseDao).create(any(Adresse.class));
 		// FIXME On ne peut pas vérifier qu'une entreprise est crée en base
+		verify(mockedEntrepriseDao).create(any(Entreprise.class));
 		// FIXME On ne peut pas vérifier qu'un secteur n'a pas été crée en base
+		verify(mockedSecteurDao, times(0)).create(any(Secteur.class));
 
 	}
 }

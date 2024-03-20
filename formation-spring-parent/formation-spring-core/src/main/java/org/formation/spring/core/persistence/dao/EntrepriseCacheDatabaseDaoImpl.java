@@ -8,10 +8,17 @@ import org.formation.spring.core.persistence.model.Entreprise;
 
 public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
+	private final CacheDatabase cacheDatabase;
+
+	public EntrepriseCacheDatabaseDaoImpl(CacheDatabase cacheDatabase) {
+		super();
+		this.cacheDatabase = cacheDatabase;
+	}
+
 	@Override
 	public Entreprise create(Entreprise entreprise) {
-		if (CacheDatabase.access.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
-			CacheDatabase.access.getEntreprises().add(entreprise);
+		if (cacheDatabase.getEntreprises().stream().noneMatch(e -> e.getId() == entreprise.getId())) {
+			cacheDatabase.getEntreprises().add(entreprise);
 		} else {
 			throw new IllegalArgumentException("Une entreprise avec cet id existe déjà");
 		}
@@ -20,12 +27,10 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public void delete(Entreprise entreprise) {
-		Entreprise entrepriseASupprimer = CacheDatabase.access.getEntreprises()
-				.stream()
-				.filter(e -> e.getId() == entreprise.getId())
-				.findAny()
+		Entreprise entrepriseASupprimer = cacheDatabase.getEntreprises().stream()
+				.filter(e -> e.getId() == entreprise.getId()).findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune entreprise avec cet id n'existe"));
-		CacheDatabase.access.getEntreprises().remove(entrepriseASupprimer);
+		cacheDatabase.getEntreprises().remove(entrepriseASupprimer);
 	}
 
 	@Override
@@ -35,24 +40,18 @@ public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	@Override
 	public Entreprise getBySiren(String siren) {
-		return CacheDatabase.access.getEntreprises()
-				.stream()
-				.filter(e -> Objects.equals(e.getSiren(), siren))
-				.findAny()
+		return cacheDatabase.getEntreprises().stream().filter(e -> Objects.equals(e.getSiren(), siren)).findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune entreprise avec ce siren n'existe"));
 	}
 
 	@Override
 	public List<Entreprise> getAll() {
-		return CacheDatabase.access.getEntreprises();
+		return cacheDatabase.getEntreprises();
 	}
 
 	@Override
 	public Entreprise getById(int id) {
-		return CacheDatabase.access.getEntreprises()
-				.stream()
-				.filter(e -> e.getId() == id)
-				.findAny()
+		return cacheDatabase.getEntreprises().stream().filter(e -> e.getId() == id).findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucune entreprise avec cet id n'existe"));
 	}
 

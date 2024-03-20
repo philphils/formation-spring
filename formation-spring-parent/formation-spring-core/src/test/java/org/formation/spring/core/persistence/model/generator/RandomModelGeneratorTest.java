@@ -2,14 +2,18 @@ package org.formation.spring.core.persistence.model.generator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Random;
+
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.junit.Test;
 
+import com.github.javafaker.Faker;
+
 public class RandomModelGeneratorTest {
 
-	RandomModelGenerator generator = new RandomModelGenerator();
+	RandomModelGenerator generator = new RandomModelGenerator(new Faker(), new Random());
 
 	@Test
 	public void generateEntreprise() {
@@ -44,4 +48,3 @@ public class RandomModelGeneratorTest {
 		assertThat(secteur).hasNoNullFieldsOrProperties();
 	}
 }
-

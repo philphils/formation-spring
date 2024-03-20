@@ -3,6 +3,7 @@ package org.formation.spring.core.persistence.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+import java.util.Random;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
@@ -10,11 +11,13 @@ import org.formation.spring.core.persistence.model.generator.RandomModelGenerato
 import org.junit.After;
 import org.junit.Test;
 
+import com.github.javafaker.Faker;
+
 public class AdresseCacheDatabaseDaoImplTest {
 
-	private RandomModelGenerator generator = new RandomModelGenerator();
+	private RandomModelGenerator generator = new RandomModelGenerator(new Faker(), new Random());
 
-	private AdresseCacheDatabaseDaoImpl dao = new AdresseCacheDatabaseDaoImpl();
+	private AdresseCacheDatabaseDaoImpl dao = new AdresseCacheDatabaseDaoImpl(CacheDatabase.access);
 
 	@After
 	public void afterEachTest() {

@@ -3,19 +3,21 @@ package org.formation.spring.core.persistence.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+import java.util.Random;
 
-import org.formation.spring.core.persistence.dao.SecteurCacheDatabaseDaoImpl;
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Test;
 
+import com.github.javafaker.Faker;
+
 public class SecteurCacheDatabaseDaoImplTest {
 
-	private RandomModelGenerator generator = new RandomModelGenerator();
+	private RandomModelGenerator generator = new RandomModelGenerator(new Faker(), new Random());
 
-	private SecteurCacheDatabaseDaoImpl dao = new SecteurCacheDatabaseDaoImpl();
+	private SecteurCacheDatabaseDaoImpl dao = new SecteurCacheDatabaseDaoImpl(CacheDatabase.access);
 
 	@After
 	public void afterEachTest() {

@@ -11,8 +11,6 @@ public class CacheDatabase {
 
 	public static final CacheDatabase access = new CacheDatabase();
 
-	private CacheDatabase() {}
-
 	private List<Entreprise> entreprises = new ArrayList<>();
 
 	private List<Adresse> adresses = new ArrayList<>();

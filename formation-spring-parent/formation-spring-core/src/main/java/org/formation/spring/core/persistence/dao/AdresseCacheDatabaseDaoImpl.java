@@ -26,9 +26,8 @@ public class AdresseCacheDatabaseDaoImpl implements ModelDao<Adresse> {
 
 	@Override
 	public void delete(Adresse adresse) {
-		Adresse adresseASupprimer = CacheDatabase.access.getAdresses().stream()
-				.filter(e -> e.getId() == adresse.getId()).findAny()
-				.orElseThrow(() -> new IllegalArgumentException("Aucune adresse avec cet id n'existe"));
+		Adresse adresseASupprimer = cacheDatabase.getAdresses().stream().filter(e -> e.getId() == adresse.getId())
+				.findAny().orElseThrow(() -> new IllegalArgumentException("Aucune adresse avec cet id n'existe"));
 		cacheDatabase.getAdresses().remove(adresseASupprimer);
 	}
 

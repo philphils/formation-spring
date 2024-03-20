@@ -6,7 +6,9 @@ import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EntrepriseServiceImpl implements EntrepriseService {
 
 	private final ModelDao<Secteur> secteurDao;

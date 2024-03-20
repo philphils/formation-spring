@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Secteur;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class SecteurCacheDatabaseDaoImpl implements ModelDao<Secteur> {
 
 	private final CacheDatabase cacheDatabase;

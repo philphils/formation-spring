@@ -5,7 +5,9 @@ import java.util.Objects;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class EntrepriseCacheDatabaseDaoImpl implements EntrepriseDao {
 
 	private final CacheDatabase cacheDatabase;

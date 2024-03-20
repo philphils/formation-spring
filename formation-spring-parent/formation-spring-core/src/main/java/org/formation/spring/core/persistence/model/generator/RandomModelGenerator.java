@@ -7,6 +7,7 @@ import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.enumeration.FormeJuridique;
 import org.formation.spring.core.persistence.model.enumeration.TypeVoie;
+import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 

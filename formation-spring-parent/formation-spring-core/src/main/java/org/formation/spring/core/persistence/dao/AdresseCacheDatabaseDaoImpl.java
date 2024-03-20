@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AdresseCacheDatabaseDaoImpl implements ModelDao<Adresse> {
 
 	private final CacheDatabase cacheDatabase;
@@ -26,9 +28,8 @@ public class AdresseCacheDatabaseDaoImpl implements ModelDao<Adresse> {
 
 	@Override
 	public void delete(Adresse adresse) {
-		Adresse adresseASupprimer = CacheDatabase.access.getAdresses().stream()
-				.filter(e -> e.getId() == adresse.getId()).findAny()
-				.orElseThrow(() -> new IllegalArgumentException("Aucune adresse avec cet id n'existe"));
+		Adresse adresseASupprimer = cacheDatabase.getAdresses().stream().filter(e -> e.getId() == adresse.getId())
+				.findAny().orElseThrow(() -> new IllegalArgumentException("Aucune adresse avec cet id n'existe"));
 		cacheDatabase.getAdresses().remove(adresseASupprimer);
 	}
 

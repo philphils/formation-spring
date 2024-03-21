@@ -3,32 +3,43 @@ package org.formation.spring.core.persistence.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import java.util.Random;
 
+import org.formation.spring.core.CoreApplication;
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import com.github.javafaker.Faker;
-
+//Pour lancer un test d'intégration spring avec JUnit4, pour jupiter, utiliser @ExtendWith(SpringExtension.class)
+@RunWith(SpringRunner.class)
+//On doit déclarer le contexte spring du test, ici on se réfère à la configuration applicative entière
+@ContextConfiguration(classes = CoreApplication.class)
 public class EntrepriseCacheDatabaseDaoImplTest {
 
-	private RandomModelGenerator generator = new RandomModelGenerator(new Faker(), new Random());
+	@Autowired
+	private RandomModelGenerator generator;
 
-	private EntrepriseCacheDatabaseDaoImpl dao = new EntrepriseCacheDatabaseDaoImpl(CacheDatabase.access);
+	@Autowired
+	private EntrepriseCacheDatabaseDaoImpl dao;
+
+	@Autowired
+	private CacheDatabase cacheDatabase;
 
 	@After
 	public void afterEachTest() {
-		CacheDatabase.access.getEntreprises().clear();
+		cacheDatabase.getEntreprises().clear();
 	}
 
 	@Test
 	public void getEntrepriseById() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		CacheDatabase.access.getEntreprises().add(entreprise);
+		cacheDatabase.getEntreprises().add(entreprise);
 
 		// WHEN
 		Entreprise returnedEntreprise = dao.getById(entreprise.getId());
@@ -41,7 +52,7 @@ public class EntrepriseCacheDatabaseDaoImplTest {
 	public void getEntrepriseBySiren() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		CacheDatabase.access.getEntreprises().add(entreprise);
+		cacheDatabase.getEntreprises().add(entreprise);
 
 		// WHEN
 		Entreprise returnedEntreprise = dao.getBySiren(entreprise.getSiren());
@@ -55,8 +66,8 @@ public class EntrepriseCacheDatabaseDaoImplTest {
 		// GIVEN
 		Entreprise entreprise1 = generator.generateEntreprise();
 		Entreprise entreprise2 = generator.generateEntreprise();
-		CacheDatabase.access.getEntreprises().add(entreprise1);
-		CacheDatabase.access.getEntreprises().add(entreprise2);
+		cacheDatabase.getEntreprises().add(entreprise1);
+		cacheDatabase.getEntreprises().add(entreprise2);
 
 		// WHEN
 		List<Entreprise> returnedEntreprises = dao.getAll();
@@ -69,13 +80,13 @@ public class EntrepriseCacheDatabaseDaoImplTest {
 	public void deleteEntreprise() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		CacheDatabase.access.getEntreprises().add(entreprise);
+		cacheDatabase.getEntreprises().add(entreprise);
 
 		// WHEN
 		dao.delete(entreprise);
 
 		// THEN
-		assertEquals(0, CacheDatabase.access.getEntreprises().size());
+		assertEquals(0, cacheDatabase.getEntreprises().size());
 	}
 
 	@Test
@@ -87,14 +98,14 @@ public class EntrepriseCacheDatabaseDaoImplTest {
 		dao.create(entreprise);
 
 		// THEN
-		assertEquals(1, CacheDatabase.access.getEntreprises().size());
+		assertEquals(1, cacheDatabase.getEntreprises().size());
 	}
 
 	@Test
 	public void updateEntreprise() {
 		// GIVEN
 		Entreprise entreprise = generator.generateEntreprise();
-		CacheDatabase.access.getEntreprises().add(entreprise);
+		cacheDatabase.getEntreprises().add(entreprise);
 
 		// WHEN
 		entreprise.setSiren("-1");

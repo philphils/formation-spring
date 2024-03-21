@@ -3,32 +3,43 @@ package org.formation.spring.core.persistence.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import java.util.Random;
 
+import org.formation.spring.core.CoreApplication;
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import com.github.javafaker.Faker;
-
+//Pour lancer un test d'intégration spring avec JUnit4, pour jupiter, utiliser @ExtendWith(SpringExtension.class)
+@RunWith(SpringRunner.class)
+//On doit déclarer le contexte spring du test, ici on se réfère à la configuration applicative entière
+@ContextConfiguration(classes = CoreApplication.class)
 public class AdresseCacheDatabaseDaoImplTest {
 
-	private RandomModelGenerator generator = new RandomModelGenerator(new Faker(), new Random());
+	@Autowired
+	private RandomModelGenerator generator;
 
-	private AdresseCacheDatabaseDaoImpl dao = new AdresseCacheDatabaseDaoImpl(CacheDatabase.access);
+	@Autowired
+	private AdresseCacheDatabaseDaoImpl dao;
+
+	@Autowired
+	private CacheDatabase cacheDatabase;
 
 	@After
 	public void afterEachTest() {
-		CacheDatabase.access.getAdresses().clear();
+		cacheDatabase.getAdresses().clear();
 	}
 
 	@Test
 	public void getAdresseById() {
 		// GIVEN
 		Adresse adresse = generator.generateAdresse();
-		CacheDatabase.access.getAdresses().add(adresse);
+		cacheDatabase.getAdresses().add(adresse);
 
 		// WHEN
 		Adresse returnedAdresse = dao.getById(adresse.getId());
@@ -42,8 +53,8 @@ public class AdresseCacheDatabaseDaoImplTest {
 		// GIVEN
 		Adresse adresse1 = generator.generateAdresse();
 		Adresse adresse2 = generator.generateAdresse();
-		CacheDatabase.access.getAdresses().add(adresse1);
-		CacheDatabase.access.getAdresses().add(adresse2);
+		cacheDatabase.getAdresses().add(adresse1);
+		cacheDatabase.getAdresses().add(adresse2);
 
 		// WHEN
 		List<Adresse> returnedAdresses = dao.getAll();
@@ -56,13 +67,13 @@ public class AdresseCacheDatabaseDaoImplTest {
 	public void deleteAdresse() {
 		// GIVEN
 		Adresse adresse = generator.generateAdresse();
-		CacheDatabase.access.getAdresses().add(adresse);
+		cacheDatabase.getAdresses().add(adresse);
 
 		// WHEN
 		dao.delete(adresse);
 
 		// THEN
-		assertEquals(0, CacheDatabase.access.getAdresses().size());
+		assertEquals(0, cacheDatabase.getAdresses().size());
 	}
 
 	@Test
@@ -74,14 +85,14 @@ public class AdresseCacheDatabaseDaoImplTest {
 		dao.create(adresse);
 
 		// THEN
-		assertEquals(1, CacheDatabase.access.getAdresses().size());
+		assertEquals(1, cacheDatabase.getAdresses().size());
 	}
 
 	@Test
 	public void updateAdresse() {
 		// GIVEN
 		Adresse adresse = generator.generateAdresse();
-		CacheDatabase.access.getAdresses().add(adresse);
+		cacheDatabase.getAdresses().add(adresse);
 
 		// WHEN
 		adresse.setNumero("-1");

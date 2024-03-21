@@ -6,5 +6,5 @@ TP 2
 5 - Modifier le nom des beans CacheDatabase et SecteurDao. Vérifier en lançant votre classe CoreApplication.
 6 - Supprimer la référence au singleton dans la classe CacheDatabase. Constater les erreurs de complilation dans les classes de test du package "persistence.dao". 
 7 - Ajouter la dépendance maven "spring-test" au module core.
-8 - Mettre en place le chargement du contexte par annotation pour les 3 tests.
+8 - Mettre en place le chargement du contexte par annotation pour les 3 tests en erreur.
 9 - Injecter par attribut les dépendances dans les classes de tests. Vérifier le bon fonctionnement en lançant les tests.

@@ -6,8 +6,6 @@ import java.util.List;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 public class CacheDatabase {
 

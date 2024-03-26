@@ -12,9 +12,11 @@ import org.formation.spring.core.persistence.model.generator.RandomModelGenerato
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 
 public class EntrepriseServiceImplTest {
 
+	@Mock
 	private ModelDao<Adresse> mockedAdresseDao;
 
 	private EntrepriseService service;

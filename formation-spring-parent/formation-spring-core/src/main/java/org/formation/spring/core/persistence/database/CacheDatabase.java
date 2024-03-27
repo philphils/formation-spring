@@ -10,7 +10,6 @@ import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class CacheDatabase {
 

@@ -32,6 +32,8 @@
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
 		<log4j.version>2.10.0</log4j.version>
+		<postgres.version>42.7.3</postgres.version>
+		<hikari-cp.version>3.0.1</hikari-cp.version>
 	</properties>
 
 	<dependencies>
@@ -114,6 +116,11 @@
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
 				<version>${commons-dbcp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgres.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

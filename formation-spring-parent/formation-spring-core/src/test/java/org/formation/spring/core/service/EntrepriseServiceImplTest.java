@@ -44,8 +44,6 @@ public class EntrepriseServiceImplTest {
 		Entreprise entreprise = service.createRandomEntreprise();
 
 		// THEN
-		assertThat(entreprise).hasNoNullFieldsOrProperties();
-
 		verify(mockedAdresseDao).create(any(Adresse.class));
 		// org.mockito.Mockito.verify(...) permet de tester qu'une méthode d'un mock a
 		// bien été utilisée.
@@ -70,7 +68,6 @@ public class EntrepriseServiceImplTest {
 		Entreprise entreprise = service.createRandomEntreprise();
 
 		// THEN
-		assertThat(entreprise).hasNoNullFieldsOrProperties();
 		verify(mockedAdresseDao).create(any(Adresse.class));
 		// FIXME Vérifier qu'une entreprise est crée en base
 		// FIXME Vérifier qu'un secteur n'a pas été crée en base

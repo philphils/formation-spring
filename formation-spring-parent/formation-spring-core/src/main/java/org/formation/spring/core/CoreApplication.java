@@ -1,8 +1,5 @@
 package org.formation.spring.core;
 
-import java.util.Arrays;
-
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +13,18 @@ public class CoreApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = new AnnotationConfigApplicationContext(CoreApplication.class);
+		/*
+		 * Il faut créer le context sans classe de config au départ pour pouvoir définir
+		 * le profile ensuite. Il est impossible de rafraîchir le contexte sinon on
+		 * obtiendrait une : IllegaleStateException.
+		 */
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+
+		context.getEnvironment().setActiveProfiles("prod");
+
+		context.register(CoreApplication.class);
+
+		context.refresh();
 
 		for (String beanName : context.getBeanDefinitionNames()) {
 

@@ -1,6 +1,5 @@
 package org.formation.spring.core.persistence.model.generator;
 
-import java.util.Locale;
 import java.util.Random;
 
 import org.formation.spring.core.persistence.model.Adresse;
@@ -13,9 +12,15 @@ import com.github.javafaker.Faker;
 
 public class RandomModelGenerator implements ModelGenerator {
 
+	private final Faker faker;
+	private final Random random;
+
+	public RandomModelGenerator(Faker faker, Random random) {
+		this.faker = faker;
+		this.random = random;
+	}
+
 	public Entreprise generateEntreprise() {
-		Faker faker = new Faker(Locale.FRANCE);
-		Random random = new Random();
 
 		Entreprise entreprise = new Entreprise();
 		entreprise.setId(random.nextInt(Integer.MAX_VALUE));
@@ -29,8 +34,6 @@ public class RandomModelGenerator implements ModelGenerator {
 	}
 
 	public Adresse generateAdresse() {
-		Faker faker = new Faker(Locale.FRANCE);
-		Random random = new Random();
 
 		Adresse adresse = new Adresse();
 		adresse.setId(random.nextInt(Integer.MAX_VALUE));
@@ -44,8 +47,6 @@ public class RandomModelGenerator implements ModelGenerator {
 	}
 
 	public Secteur generateSecteur() {
-		Faker faker = new Faker(Locale.FRANCE);
-		Random random = new Random();
 
 		Secteur secteur = new Secteur();
 		secteur.setId(random.nextInt(Integer.MAX_VALUE));

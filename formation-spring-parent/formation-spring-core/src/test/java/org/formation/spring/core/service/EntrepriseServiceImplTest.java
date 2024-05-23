@@ -3,13 +3,10 @@ package org.formation.spring.core.service;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
-import org.formation.spring.core.persistence.dao.EntrepriseDao;
 import org.formation.spring.core.persistence.dao.ModelDao;
 import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
-import org.formation.spring.core.persistence.model.Secteur;
-import org.formation.spring.core.persistence.model.generator.ModelGenerator;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
 import org.junit.After;
 import org.junit.Before;
@@ -24,29 +21,11 @@ public class EntrepriseServiceImplTest {
 	@Mock
 	private ModelDao<Adresse> mockedAdresseDao;
 
-	@Mock
-	private ModelDao<Secteur> mockedSecteurDao;
-	
-	@Mock
-	private ModelGenerator mockedModelGenerator;
-	
-	@Mock
-	private EntrepriseDao mockedEntrepriseDao;
-	
 	private EntrepriseService service;
-
-	public EntrepriseServiceImplTest(ModelDao<Secteur> mockedSecteurDao, ModelDao<Adresse> mockedAdresseDao,
-			ModelGenerator mockedModelGenerator, EntrepriseDao mockedEntrepriseDao, EntrepriseService service) {
-		this.mockedAdresseDao = mockedAdresseDao;
-		this.mockedSecteurDao = mockedSecteurDao;
-		this.mockedModelGenerator = mockedModelGenerator;
-		this.mockedEntrepriseDao = mockedEntrepriseDao;
-		this.service = service;
-	}
 
 	@Before
 	public void setUp() {
-		this.service = new EntrepriseServiceImpl(mockedSecteurDao, mockedAdresseDao, mockedModelGenerator, mockedEntrepriseDao);
+		this.service = new EntrepriseServiceImpl(mockedAdresseDao);
 	}
 
 	@After

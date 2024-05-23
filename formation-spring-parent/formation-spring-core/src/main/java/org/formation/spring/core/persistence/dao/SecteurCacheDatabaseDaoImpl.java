@@ -6,19 +6,11 @@ import org.formation.spring.core.persistence.database.CacheDatabase;
 import org.formation.spring.core.persistence.model.Secteur;
 
 public class SecteurCacheDatabaseDaoImpl implements ModelDao<Secteur> {
-	
-	private CacheDatabase cacheDatabase;
-	
-	
-
-	public SecteurCacheDatabaseDaoImpl(CacheDatabase cacheDatabase) {
-		this.cacheDatabase = cacheDatabase;
-	}
 
 	@Override
 	public Secteur create(Secteur secteur) {
-		if (cacheDatabase.getSecteurs().stream().noneMatch(e -> e.getId() == secteur.getId())) {
-			cacheDatabase.getSecteurs().add(secteur);
+		if (CacheDatabase.access.getSecteurs().stream().noneMatch(e -> e.getId() == secteur.getId())) {
+			CacheDatabase.access.getSecteurs().add(secteur);
 		} else {
 			throw new IllegalArgumentException("Un secteur avec cet id existe déjà");
 		}
@@ -27,12 +19,12 @@ public class SecteurCacheDatabaseDaoImpl implements ModelDao<Secteur> {
 
 	@Override
 	public void delete(Secteur secteur) {
-		Secteur secteurASupprimer = cacheDatabase.getSecteurs()
+		Secteur secteurASupprimer = CacheDatabase.access.getSecteurs()
 				.stream()
 				.filter(e -> e.getId() == secteur.getId())
 				.findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Aucun secteur avec cet id n'existe"));
-		cacheDatabase.getSecteurs().remove(secteurASupprimer);
+		CacheDatabase.access.getSecteurs().remove(secteurASupprimer);
 	}
 
 	@Override
@@ -42,12 +34,12 @@ public class SecteurCacheDatabaseDaoImpl implements ModelDao<Secteur> {
 
 	@Override
 	public List<Secteur> getAll() {
-		return cacheDatabase.getSecteurs();
+		return CacheDatabase.access.getSecteurs();
 	}
 
 	@Override
 	public Secteur getById(int id) {
-		return cacheDatabase.getSecteurs()
+		return CacheDatabase.access.getSecteurs()
 				.stream()
 				.filter(e -> e.getId() == id)
 				.findAny()

@@ -71,3 +71,7 @@
 .reveal section img.image-emoji {
   max-height: 15vh !important;
 }
+
+.reveal section img.image-large {
+  max-height: 50vh !important;
+}

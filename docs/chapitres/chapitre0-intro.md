@@ -2,17 +2,13 @@
 
 ![](./img/diapo_formation_spring_0.png)
 
-
---
-# Spring is coming…
-
-![](./img/diapo_formation_spring_1.png)
-
+<div style="position: absolute; bottom: 20px; right: 30px; font-size: 0.8em; color: #444">
+<i>#SpringIsComing…</i> 😉
+</div>
 --
 
 - Tour de parole pour mesurer le niveau d'expérience
 - Questions organisationnelles
-
 
 --
 # Plan

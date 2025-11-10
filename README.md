@@ -17,3 +17,7 @@ Nous ferons évoluer un projet-TP au fur et à mesure de chaque module. En parta
 Les TPs tâcheront de suivre une logique TDD (Test Driven Development) permettant à chaque développeur d'être autonome pour valider ses propres développements.
 
 Pour le contenu théorique nous nous sommes inspirer du site suivant : https://gayerie.dev/docs/spring/index.html
+
+## Licence
+Ce dépôt (code et supports de formation) est distribué sous licence [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr).
+Vous pouvez réutiliser, modifier et partager librement ce contenu, à condition de mentionner l’auteur.

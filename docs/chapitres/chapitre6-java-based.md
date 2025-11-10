@@ -82,7 +82,8 @@ public IReservationSalleService reservationSalleService() {
 
 
 --
-# Exemple d’utilisation classique de @Bean
+# Exemple d’utilisation 
+# classique de @Bean
 
 ```java
 @Configuration

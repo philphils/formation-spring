@@ -27,7 +27,7 @@
 * __L’autowiring peut\-être utilisé à 3 niveaux :__
   * __Constructeur : appairage des arguments du constructeur et injection au moment de la création du bean__
   * __Attribut : appairage de l’attribut de la classe et renseignement une fois l’instance créée par réflexivité__
-  * __Setter : appairage de l’argument du setter\, appel__  * __du setter après la création__
+  * __Setter : appairage de l’argument du setter\, appel du setter après la création__
 
 
 
@@ -174,7 +174,8 @@ public ReservationSalleService reservationSalleService
 ![](./img/diapo_formation_spring_10_3.png) <!-- .element: class="image-large" -->
 
 --
-# @Autowired et le paramètre required
+# @Autowired et le 
+# paramètre required
 
 * __Si la dépendance ne peut être satisfaite avec les beans du container__
 
@@ -182,9 +183,7 @@ public ReservationSalleService reservationSalleService
 
 * __`@Autowired` dispose d’un paramètre `required=` qui attend un booléen et vaut _true_ par défaut__
 
-* __Si `required= false` la dépendance est alors définie comme « optionnelle »__
-
-    * __→ Aucune exception n’est levée\, l’attribut ou l’argument vaut _null_ .__
+* __Si `required= false` la dépendance est alors définie comme « optionnelle ». Aucune exception n’est levée, l’objet vaut _null_ .__
 
 
 --

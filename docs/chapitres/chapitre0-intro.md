@@ -8,8 +8,6 @@
 --
 
 
---
-
 # Plan
 * [Chapitre 1 — Couplage faible / Couplage fort](#/1)
 * [Chapitre 2 — Spring et l’inversion de contrôle](#/2)

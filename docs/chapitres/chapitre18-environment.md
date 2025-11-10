@@ -16,10 +16,6 @@
 * __Offre d’autres fonctionnalités comme la gestion de clés cryptées__ 
 
 --
-
-# Environment Abstraction
-
---
 # Property Source
 
 * __Le container Spring contient un objet Environnement__ 

@@ -31,7 +31,7 @@
 
 * __Les instances des classes Java de composants sont appelées « beans »__
 
-* __Le terme « bean » renvoit à des composants petits\, simples… et donc réutilisables \(__  * __inspiré par les grains de café?\)__
+* __Le terme « bean » renvoit à des composants petits\, simples… et donc réutilisables \(inspiré par les grains de café?\)__
 
 * __Le contexte d’application gère donc le « cycle de vie des beans » et leurs inter\-dépendances et permet de les récupérer simplement__
 

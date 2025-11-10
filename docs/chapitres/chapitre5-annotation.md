@@ -21,20 +21,22 @@
 * __Même cheminement du côté Hibernate__
 
 --
-# Une annotation principale : @Component
+# Une annotation principale :
+# @Component
 
 * __L’annotation `@Component` est l’annotation principale pour la déclaration de beans__
 * __Elle se place au niveau de la déclaration de la classe__
 * __On indique ainsi à Spring de créer un bean à partir de cette classe__
 
 --
-# Une annotation principale : @Component
+# Une annotation principale :
+# @Component
 
 * __Spring choisit le constructeur de cette manière :__
   * __Pas de constructeur → Choix du constructeur vide__
   * __Constructeur unique → Choix de ce constructeur \(depuis 4\.3\)__
   * __Plusieurs constructeurs → Nécessité de choisir un des constructeurs avec l’annotation `@Autowired`__   
-* __Les paramètres du constructeur seront renseignés avec d’autres beans\, par « auto\-wiring » \(expliqué plus loin\)__
+* __Les arguments du constructeur seront d’autres beans choisis par « auto\-wiring » (vu plus loin)__
 
 --
 # @Component et @Value

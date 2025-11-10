@@ -117,11 +117,15 @@ public class Application {
 * __Pour les tests unitaires\, on souhaitera aussi pouvoir récupérer les beans du contexte Spring__
 * __Plusieurs annotations permettent de recréer le contexte :__
     * __Avec JUnit 4 :__
-      *  `@RunWith(SpringRunner.class)`
-      *  `@ContextConfiguration(classes=Application.class)`
+      ```java
+      @RunWith(SpringRunner.class)
+      @ContextConfiguration(classes=Application.class)
+      ```
     * __Avec JUnit 5:__
-      *  `@ExtendWith(SpringExtension.class)`
-      *  `@ContextConfiguration(classes=Application.class)`
+      ```java
+      @ExtendWith(SpringExtension.class)
+      @ContextConfiguration(classes=Application.class)
+      ```
 
 --
 # Création du contexte pour les tests

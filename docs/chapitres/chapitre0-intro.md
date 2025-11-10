@@ -7,75 +7,40 @@
 </div>
 --
 
-- Tour de parole pour mesurer le niveau d'expérience
-- Questions organisationnelles
+
+--
+
+# Plan
+* [Chapitre 1 — Couplage faible / Couplage fort](#/1)
+* [Chapitre 2 — Spring et l’inversion de contrôle](#/2)
+* [Chapitre 3 — Le contexte d’application Spring](#/3)
+* [Chapitre 4 — Création des beans en XML](#/4)
+* [Chapitre 5 — Création des beans avec annotations](#/5)
+* [Chapitre 6 — Création des beans en mode Java-based](#/6)
+* [Chapitre 7 — La création du contexte](#/7)
+* [Chapitre 8 — L’autowiring](#/8)
 
 --
 # Plan
 
-* __[Introduction](slide3.xml)__
-
-* __[Couplage faible/Couplage fort](slide9.xml)__
-
-* __[L’injection de dépendances](slide15.xml)__
-
-* __[L’inversion de contrôle](slide30.xml)__
-
-* __[Le contexte d’application](slide37.xml)__
-
-* __[Création des beans en XML](slide43.xml)__
+* [Chapitre 9 — Injection](#/9)
+* [Chapitre 10 — Dépendances circulaires](#/10)
+* [Chapitre 11 — La levée des ambiguïtés](#/11)
+* [Chapitre 12 — Les annotations standards](#/12)
+* [Chapitre 13 — Initialisation et destruction des beans](#/13)
+* [Chapitre 14 — Le scope](#/14)
+* [Chapitre 15 — Héritage entre beans](#/15)
+* [Chapitre 16 — Configurations hybrides](#/16)
 
 --
 # Plan
 
-* __[Création des beans avec annotations](slide56.xml)__
-
-* __[Création des beans en mode Java\-Based](slide63.xml)__
-
-* __[La création du context](slide69.xml)__
-
-* __[L'autowiring](slide76.xml)__
-
-* __[Levée des ambiguïtés](slide107.xml)__
-
-* __[Les annotations standards](slide111.xml)__
-
-* __[Initialisation destruction des beans](slide116.xml)__
-
+* [Chapitre 17 — Spring Tools Suite](#/17)
+* [Chapitre 18 — Environnement (Environment)](#/18)
+* [Chapitre 19 — Récupération des Properties](#/19)
+* [Chapitre 20 — Profiles](#/20)
+* [Chapitre 21 — Conclusion](#/21)
 --
-# Plan
-
-* __[Bean’s scope](slide120.xml)__
-
-* __[Héritage entre les beans](slide125.xml)__
-
-* __[Configuration XML/Java remix](slide130.xml)__
-
-* __[Spring Tools Suite](slide134.xml)__
-
-
---
-# Introduction
-
-* __Spring est un framework très répandu dans le monde Java__
-
-* __Développé dans les années 2000 par Rod Johnson__
-
-* __Entièrement Open Source__
-
-* __Utilisé pour le développement d’applications Web ou Batch__
-
-* __Volonté d’un framework « léger » et souple__
-
---
-
-# Introduction
-
-* __A l’origine une alternative à l’architecture J2EE assez contraignante \(EJB\)__
-
-* __On parle de conteneur « léger » par opposition au conteneur « lourd » J2EE__
-
-* __Volonté d’être « non\-intrusif » dans le code__
 
 * __Au départ configuration via fichiers XML externes__
 

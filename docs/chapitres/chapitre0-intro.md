@@ -40,12 +40,6 @@
 * [Chapitre 21 — Conclusion](#/21)
 --
 
-* __Au départ configuration via fichiers XML externes__
-
-* __Plus intrusif depuis l’utilisation des annotations mais plus de lisibilité__
-
---
-
 # Introduction
 
 * __Noyau initial de Spring \(spring\-core\) autour de l’Injection de Dépendance__
@@ -56,7 +50,17 @@
 
 * __Enfin Spring\-Boot \(2014\) « chapeaute » l’ensemble__
 
+--
+
+# Introduction
+
 * __Permet de démarrer et configurer très rapidement les applications__
+
+* __Au départ configuration via fichiers XML externes__
+
+* __Plus intrusif depuis l’utilisation des annotations mais plus de lisibilité__
+
+
 
 --
 # Schéma des modules Spring

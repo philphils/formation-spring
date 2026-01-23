@@ -1,23 +1,96 @@
-# Formation Spring
+# Formation Spring – Noyau & IoC
 
-## Objectifs
+## 🎯 Objectifs
 
-Spring est un ensemble de frameworks Java utilisés à l’Insee et ailleurs depuis maintenant plus de 10 ans. La "galaxie" Spring s'est constituée autour d'un noyau initial  permettant de mettre en œuvre et de gérer « l’injection de dépendance ». Ce pattern permet de réduire l'adhérence entre les différentes couches du code applicatif, de gagner en structuration et lisibilité, et donc de réduire les coûts de maintenance. Autour de ce noyau initial se sont peu à peu greffés de nombreux autres outils.
+Cette formation a pour objectif de fournir une **compréhension solide des fondements de Spring**, en particulier du **conteneur IoC** (*Inversion of Control*) et de la gestion des **beans**.
 
-## Organisation
+Spring est un ensemble de frameworks Java largement utilisés depuis plus de 10 ans, notamment à l’Insee. L’écosystème Spring s’est construit autour d’un noyau permettant la **gestion de l’injection de dépendances**, un *design pattern* visant à :
 
-La formation s'étalera sur 2 journées. Un exposé exhaustif des fonctionnalités des modules Spring est impossible dans ce temps. L'objectif sera donc plus d'aborder les notions fondamentales des fonctionnalités du noyau Spring, pour permettre aux développeurs de pouvoir se repérer et contribuer au développement d'application utilisant Spring.
+* réduire le couplage entre les composants applicatifs ;
+* améliorer la lisibilité et la structuration du code ;
+* faciliter les tests et la maintenance ;
+* rendre les applications plus modulaires et évolutives.
 
-## Travaux pratiques
+Cette formation se concentre volontairement sur **Spring “core”**, sans aborder Spring Boot, qui fera l’objet d’une formation ultérieure.
 
-L'objectif sera au fur et à mesure des TPs de constituer une mini "API-Sirene", comportant quelques endpoints permettant la création, suppression, modification ou consultation d'une entreprise, ainsi que quelques services.
+---
 
-Nous ferons évoluer un projet-TP au fur et à mesure de chaque module. En partant d'un projet sans Spring nous introduirons l'injection de dépendances. Nous exposerons les possibilités de configuration via XML pour ensuite lui préférer une configuration via annotations.
+## 🗓️ Organisation de la formation
 
-Les TPs tâcheront de suivre une logique TDD (Test Driven Development) permettant à chaque développeur d'être autonome pour valider ses propres développements.
+La formation se déroule sur **2 journées**.
 
-Pour le contenu théorique nous nous sommes inspirer du site suivant : https://gayerie.dev/docs/spring/index.html
+Elle ne vise pas à couvrir l’intégralité des modules Spring, mais à donner aux participants les **repères conceptuels essentiels** pour comprendre le fonctionnement interne du framework et être autonomes dans des projets existants utilisant Spring.
 
-## Licence
-Ce dépôt (code et supports de formation) est distribué sous licence [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr).
-Vous pouvez réutiliser, modifier et partager librement ce contenu, à condition de mentionner l’auteur.
+L’accent est mis sur :
+
+* le cycle de vie des beans ;
+* les mécanismes de configuration ;
+* les bonnes pratiques d’utilisation du conteneur Spring.
+
+---
+
+## 🧪 Travaux pratiques
+
+Les travaux pratiques ont pour objectif de **manipuler concrètement le conteneur Spring** afin de comprendre :
+
+* la définition et l’utilisation des **beans** ;
+* les différents types d’**injection de dépendances** ;
+* les mécanismes d’**autowiring** et de résolution des ambiguïtés ;
+* les **scopes** des beans ;
+* les **profiles** et la configuration selon l’environnement ;
+* la gestion du cycle de vie et de l’initialisation des beans.
+
+### Approche pédagogique
+
+* Les TPs s’appuient sur des **exemples progressifs et ciblés**, indépendants d’une application métier complète.
+* Chaque notion théorique est rapidement mise en pratique.
+* L’objectif n’est pas de construire une API complète, mais de **comprendre finement le fonctionnement de Spring**.
+* Une démarche proche du **TDD (Test Driven Development)** est encouragée afin de valider le comportement attendu du conteneur.
+
+---
+
+## 📚 Contenu du cours
+
+Le cours est structuré en chapitres, chacun abordant une notion clé du noyau Spring :
+
+* introduction et problématiques de couplage ;
+* Inversion of Control (IoC) ;
+* conteneur Spring et contexte applicatif ;
+* configuration par XML, annotations et Java-based configuration ;
+* création et injection des beans ;
+* autowiring et dépendances circulaires ;
+* scopes, héritage et initialisation ;
+* environnements, properties et profiles ;
+* bonnes pratiques et standards.
+
+---
+
+## 📚 Ressources pédagogiques
+
+Une partie du contenu théorique s’inspire de la ressource suivante :
+
+👉 [https://gayerie.dev/docs/spring/index.html](https://gayerie.dev/docs/spring/index.html)
+
+---
+
+## 📽️ Support de présentation
+
+Les diapositives de la formation sont disponibles à l’adresse suivante :
+
+👉 [https://philphils.github.io/formation-spring/](https://philphils.github.io/formation-spring/)
+
+---
+
+## 📄 Licence
+
+Ce dépôt (code source et supports de formation) est distribué sous licence **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+
+🔗 [https://creativecommons.org/licenses/by/4.0/deed.fr](https://creativecommons.org/licenses/by/4.0/deed.fr)
+
+Vous êtes libre de :
+
+* réutiliser ;
+* modifier ;
+* partager ce contenu,
+
+à condition de **mentionner l’auteur**.

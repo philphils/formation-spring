@@ -42,30 +42,38 @@
 
 # Introduction
 
-* __Noyau initial de Spring \(spring\-core\) autour de l’Injection de Dépendance__
-
-* __Maintenant\, Spring présent dans toutes les couches applicatives__
-
-* __Services\, DAO\, Web\, Batch\, échange par messagerie \(JMS\)\, configuration etc\.__
-
-* __Enfin Spring\-Boot \(2014\) « chapeaute » l’ensemble__
+* __Framework très répandu dans le monde Java__
+* __Développé dans les années 2000 par Rod Johnson__
+* __Entièrement Open Source__
+* __Utilisé pour le développement d’applications Web ou Batch__
 
 --
 
 # Introduction
 
-* __Permet de démarrer et configurer très rapidement les applications__
+* __Volonté d’un framework « léger » et souple__
 
 * __Au départ configuration via fichiers XML externes__
 
 * __Plus intrusif depuis l’utilisation des annotations mais plus de lisibilité__
 
 
+--
+# Introduction
+
+* __Noyau initial de Spring \(spring\-core\) autour de l’Injection de Dépendance__
+
+* __Maintenant\, Spring présent dans toutes les couches applicatives__
+
+* __Services\, DAO\, Web\, Batch\, échange par messagerie \(JMS\)\, configuration etc\.__
+
+* __Enfin Spring\-Boot \(2014\) « chapeaute » l’ensemble, et permet de démarrer rapidement une application Spring__
 
 --
+
 # Schéma des modules Spring
 
- ![](./img/diapo_formation_spring_2.png)
+ ![](./img/diapo_formation_spring_2.png) <!-- .element: class="image-large" -->
 
 --
 # Dépendances Maven

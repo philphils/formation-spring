@@ -66,7 +66,7 @@
   *  __`@Service`: Pour les composants de la couche service__
   *  __`@Repository` : Pour les DAO\, par ex\. avec Spring\-Data__
   *  __`@Controller` : Pour la présentation\, par ex\. Spring\-MVC__
-  *  __`@RestController` : Pour les classes exposant une API__
+  *  __`@RestController` : Pour les classes exposant une API (équivalent de `@Controller` + `@ResponseBody`)__
 
 --
 # Les dérivés de @Component

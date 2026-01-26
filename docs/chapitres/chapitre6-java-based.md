@@ -58,10 +58,24 @@ public IReservationSalleService reservationSalleService() {
 
 * __Par défaut l’id du bean = le nom de la méthode__
 
-* __Pour configurer l’id on fait comme pour `@Component`: `@Bean("beanResaService")`__
+* __Pour configurer l’id on fait comme pour `@Component`: `@Bean("nomDuBean")`__
 
-* __Si d’autres éléments sont nécessaires à la création du bean\, on ajoute des arguments qui seront valorisés par « Autowiring » \(cf plus loin\)__
 
+--
+# Exemple
+
+* __Si des dépendances sont nécessaires à la création du bean\, on ajoute des arguments qui seront valorisés par « Autowiring » \(cf plus loin\). Ex:__
+
+```java
+@Bean
+public IReservationSalleService 
+    reservationSalleService(ReservationSalleDao reservationSalleDao) {
+  ReservationSalleServiceImpl reservationSalleServiceImpl 
+      = new ReservationSalleServiceImpl(reservationSalleDao);
+  reservationSalleServiceImpl.setNbSallesDispo(12);
+  return (IReservationSalleService) reservationSalleServiceImpl;
+}
+```
 
 --
 # Où positionner les @Bean ?

@@ -1,6 +1,6 @@
 Intro :
 
-L'objectif est de réaliser petit à petit une mini API-Sirene. Pour la formation Spring-Initiation nous n'utiliserons que le module core, les autres seront utilisés lors des formation Spring-Data, Spring-REST, Spring-Boot.
+Pour la formation Spring-Initiation nous n'utiliserons que le module core, les autres seront utilisés lors des formation Spring-Data, Spring-REST, Spring-Boot.
 
 Pour les besoins de cette formation une base de données en mémoire a été réalisé. Il s'agit simplement de stocker les données sous la forme de collection d'objets dans une classe dédiée. La classe CacheDatabase qui est un singleton contient donc plusieurs liste d'objets. Une vrai BDD sera mise en place avec Spring-Data.
 

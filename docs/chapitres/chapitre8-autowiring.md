@@ -127,9 +127,7 @@
 public ReservationSalleService reservationSalleService
                     (ReservationSalleDao reservationSalleDao) {
   ReservationSalleServiceImpl reservationSalleServiceImpl 
-      = new ReservationSalleServiceImpl();
-  reservationSalleServiceImpl
-      .setReservationDalleDao(reservationSalleDao);
+      = new ReservationSalleServiceImpl(reservationSalleDao);
   return (ReservationSalleService) reservationSalleServiceImpl;
 }
 ```
@@ -143,18 +141,32 @@ public ReservationSalleService reservationSalleService
 --
 # L’annotation @Autowired
 
+* __Elle réalise par défaut un appairage via le type de l’attribut\, puis\, en général\, par nom si ambiguïté__
+
+* __Il est aussi possible de récupérer tous les beans d’un type au sein d’une collection__
+
+
+--
+# TP2 :
+
+__Mise en place Spring__
+
+__avec autowiring par constructeur__
+
+![](./img/diapo_formation_spring_12.png)
+
+--
+
+## Les autres types d'autowiring
+
+--
+# L’annotation @Autowired
+
 * __`@Autowired` a de multiples usages__
 
 * __Cette annotation peut aussi s’utiliser pour résoudre une dépendance au niveau attribut__
 
 * __L’attribut est alors renseigné par réflexivité après création de l’instance__
-
---
-# L’annotation @Autowired
-
-* __Elle réalise par défaut un appairage via le type de l’attribut\, puis\, en général\, par nom si ambiguïté__
-
-* __Il est aussi possible de récupérer tous les beans d’un type au sein d’une collection__
 
 
 --
@@ -237,10 +249,3 @@ public class ReservationSalleServiceImpl {
   <beans default-autowire="byType">
   ```
 * __Il n’y a pas en revanche d’autowiring de type setter en XML__
-
---
-# TP2 :
-
-__Mise en place Spring__
-
-![](./img/diapo_formation_spring_12.png)

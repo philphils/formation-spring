@@ -36,7 +36,7 @@
 
 * __La modification du scope doit correspondre à des cas relativement rares__
 
-* __Par exemple\, si les classes Controller portent des données utilisateurs\, elles doivent absolument redéfinir un scope__
+* __Par exemple\, si les classes `@Controller` portent des données utilisateurs\, elles doivent absolument redéfinir un scope__
 
 * __Mais on évite en général de faire porter aux beans des données liées au contexte\, car on nuit alors à l’immutabilité de l’objet__
 
@@ -51,11 +51,11 @@
 --
 # Scope et Spring Batch
 
-* __Pour ses besoins propres\, Spring Batch propose 2 scopes particuliers__
+* __Pour ses besoins propres\, Spring Batch propose 2 scopes particuliers :__
 
-* __`@StepScope` : Permet de conserver un bean en vie pendant la durée d’une étape d’un job__
+    * __`@StepScope` : Permet de conserver un bean en vie pendant la durée d’une étape d’un job__
 
-* __`@JobScope` : Permet de conserver un bean en vie pendant la durée d’un job__
+    * __`@JobScope` : Permet de conserver un bean en vie pendant la durée d’un job__
 
 --
 # Scope et Spring Batch

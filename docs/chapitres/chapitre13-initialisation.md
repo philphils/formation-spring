@@ -64,8 +64,36 @@ public void init() {
 * __En XML\, on pourra définir les attribut : `init-method=` et `destroy-method=`__
 
 --
-# Méthodes via interface et XML
+# `BeanPostProcessor`
 
 * __Enfin\, pour des besoins de configuration plus poussés\, on pourra définir des `BeanPostProcessor`__
 
-* __Par exemple pour étendre ou modifier les comportements des beans \(proxy\, wrapper…\)__
+* __Les `BeanPostProcessor` permettent d'intervenir avant et après l'initialisation des beans__
+
+* __Ils sont utiles pour ajouter des fonctionnalités transversales ou modifier le comportement des beans, par exemple pour étendre ou modifier les comportements des beans (proxy\, wrapper…\)__
+
+
+--
+# `BeanPostProcessor`
+
+```java
+@Component
+public class PrefixBeanPostProcessor implements BeanPostProcessor {
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if (bean instanceof MyService) {
+            System.out.println("Avant initialisation : " + beanName);
+        }
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if (bean instanceof MyService) {
+            System.out.println("Après initialisation : " + beanName);
+        }
+        return bean;
+    }
+}
+```

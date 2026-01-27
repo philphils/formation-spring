@@ -8,7 +8,7 @@
 * Créez une classe `EmptyModelGenerator`.
 * Celle-ci doit implémenter l'interface `ModelGenerator`.
 * Faites en sorte qu'elle renvoie des objets vides (ou une implémentation minimale).
-* **Action :** Marquez cette classe avec l'annotation stéréotype appropriée pour qu'elle soit détectée par Spring.
+* **Action :** Marquez cette classe avec l'annotation appropriée pour qu'elle soit détectée par Spring.
 
 ## 2. Configuration du test Spring
 * Créez une nouvelle classe de test JUnit pour `EmptyModelGenerator`.
@@ -28,4 +28,4 @@
 ## 5. Injection multiple (Lists)
 * Modifiez votre test pour injecter non pas un seul bean, mais une liste de tous les beans implémentant l'interface :  
   `@Autowired List<ModelGenerator> generators;`
-* **Vérification :** Créez un test pour valider que la liste contient bien les deux implémentations créées jusqu
+* **Vérification :** Créez un test pour valider que la liste contient bien les deux implémentations créées.

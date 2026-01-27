@@ -6,7 +6,7 @@
 
 * __L’autowiring est la manière la moins verbeuse et la plus naturelle d’injecter les beans__
 
-* __Dans la majorité\, voire la totalité des cas\, il n’y a pas d’ambiguïté à lever au niveau du bean à injecter__
+* __Dans la majorité\, voire la totalité des cas\, il n’y a pas d’ambiguïté à lever au niveau du bean à injecter : une interface -> un bean__
 
 * __En cas d’ambiguïté\, c’est à dire que plusieurs beans matchent\, des outils existent pour les résoudre…__
 
@@ -22,7 +22,7 @@
   * __Création de nouveaux beans__
 
 --
-# Se poser les bonnes questions...
+# ... et y répondre !
 
 * __Dans le cas où l’ambiguïté reste nécessaire\, plusieurs méthodes existent…__
 * __En cas avec plusieurs pool de connexion par ex. la qualification peut être nécessaire__
@@ -57,11 +57,11 @@ public ReservationSalleService getReservationSalleImpl() {...}
 --
 # `@Qualifier`
 
-* __Cette annotation permet de créer des catégories de beans\, ex : `@Qualifier("bdd_metier")`__
+* __Cette annotation permet de "tagger" des catégories de beans, ex : `@Qualifier("bdd_metier")`__
 
-* __Elle se positionne de même que `@Primary`, soit sur une classe `@Component` ou dérivés\, soit sur une méthode annotée `@Bean``__ 
+* __Elle se positionne de même que `@Primary`, soit sur une classe `@Component` ou dérivés, soit sur une méthode annotée `@Bean`__ 
 
-* __On pourra alors spécifier lors de l’injection sur un attribut\, un setter la catégorie à laquelle doit appartenir le bean__
+* __On pourra alors spécifier lors de l’injection sur un attribut ou un setter la "catégorie" à laquelle doit appartenir le bean__
 
 --
 # `@Qualifier`
@@ -73,7 +73,7 @@ public ReservationSalleService getReservationSalleImpl() {...}
 ```java
 `@Autowired`
 public void setReservationSalleDao(
-      `@Qualifier`("festif") ReservationSalleDao reservationSalleDao) {
+      @Qualifier("festif") ReservationSalleDao reservationSalleDao) {
   reservationSalleDao.setNbSallesDispo(11);
 }
 ```

@@ -17,7 +17,7 @@
 
 * __Il est possible aussi d’avoir recours à l’injection via setter ou attribut pour ces beans seulement__
 
-* __Enfin\, on peut utiliser les méthodes d’initialisation\, avec par exemple `@PostConstruct` pour configurer le bean après création ou encore utiliser `@Lazy``…__
+* __Enfin\, on peut utiliser les méthodes d’initialisation\, avec par exemple `@PostConstruct` pour configurer le bean après création ou encore utiliser `@Lazy`…__
 
 
 --
@@ -25,13 +25,13 @@
 
 * __Le problème des dépendances circulaires peut aussi être résolu par `@Lazy`, ou `@DependsOn`__
 
-* __`@Lazy` permet de retarder la création d’un bean utilisé au niveau classe ou sur une méthode `@Bean`__
+* __`@Lazy` permet de retarder la création d’un bean jusqu'au premier appel réel de ses méthodes__
 
-* __`@Lazy` peut aussi permettre de retarder l’injection d’une dépendance particulière au niveau attribut\, ou encore être utilisé au niveau de l’argument d’un constructeur__
+* __`@Lazy` peut ainsi être positionné au niveau de l’argument d’un constructeur, au niveau attribut, au niveau de la classe ou encore sur une méthode `@Bean`__
 
 --
 # `@Lazy`, `@DependsOn`
 
 * __`@DependsOn` permet de signifier à Spring qu’un bean dépend d’un autre et doit être créé après lui__
 
-* __Ces annotations sont à utiliser avec parcimonie car elles peuvent complexifier le déboggage__
+* __Ces annotations sont à utiliser avec parcimonie car elles peuvent complexifier le déboggage...__

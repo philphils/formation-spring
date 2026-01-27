@@ -22,7 +22,7 @@
 ## 4. Destruction du Bean (`@PreDestroy`)
 * Ajoutez une méthode de nettoyage dans `CacheDatabase`.
 * Annotez-la avec `@PreDestroy`.
-* **Logique :** * Simulez une libération des ressources (ex: vider la liste).
+* **Logique :** Simulez une libération des ressources (ex: vider la liste).
     * Affichez un message dans la console (Log) pour confirmer que Spring ferme correctement le composant.
 
 ## 5. Tests et Validation

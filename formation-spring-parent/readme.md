@@ -1,4 +1,4 @@
-# TP 2 (Suite) : Environnement, Properties et Profils
+# TP 5 : Environnement, Properties et Profils
 
 **Objectif :** Apprendre à gérer la configuration externe via des fichiers `.properties` et à conditionner la création de beans selon des profils (Environnements).
 

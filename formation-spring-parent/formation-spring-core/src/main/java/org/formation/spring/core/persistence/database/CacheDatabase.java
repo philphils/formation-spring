@@ -3,13 +3,13 @@ package org.formation.spring.core.persistence.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 import org.formation.spring.core.persistence.model.Adresse;
 import org.formation.spring.core.persistence.model.Entreprise;
 import org.formation.spring.core.persistence.model.Secteur;
 import org.formation.spring.core.persistence.model.generator.RandomModelGenerator;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 public class CacheDatabase {
 

@@ -11,7 +11,7 @@
 > **Pourquoi ?** Depuis Java 9, les annotations de cycle de vie ne sont plus incluses par défaut dans le JDK standard.
 
 ## 2. Injection de dépendance dans CacheDatabase
-* Modifiez la classe `CacheDatabase` pour y ajouter une dépendance vers `RandomModelGenerator`.
+* Modifiez la classe `CacheDatabase` pour y ajouter une dépendance vers `ModelGenerator` en qualifiant le bean pour ne pas récupérer l'implémentation `EmptyModelGenerator`.
 * **Configuration :** Mettez à jour votre classe `@Configuration`. La méthode qui produit le bean `CacheDatabase` doit maintenant recevoir un `RandomModelGenerator` en paramètre pour l'injecter.
 
 ## 3. Initialisation du Bean (`@PostConstruct`)

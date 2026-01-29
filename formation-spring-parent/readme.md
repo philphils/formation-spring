@@ -28,4 +28,4 @@
 ## 5. Tests et Validation
 * Créez une classe de test dédiée pour `CacheDatabase`.
 * **Vérifications attendues :**
-    * Le bean est correctement injecté.
+    * La base est bien instanciée avec 3 Secteurs à l'issue de l'initialisation du bean.

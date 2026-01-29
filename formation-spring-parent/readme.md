@@ -1,4 +1,4 @@
-# TP 2 (Suite) : Injection de dépendances et Qualificateurs
+# TP 3 : Injection de dépendances et Qualificateurs
 
 **Objectif :** Maîtriser l'injection d'interfaces, la résolution des ambiguïtés (conflits de beans) et l'injection de collections avec Spring.
 

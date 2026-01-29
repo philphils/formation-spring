@@ -1,4 +1,4 @@
-# TP 2 (Suite) : Cycle de vie et Dépendances des Beans
+# TP 4 : Cycle de vie et Dépendances des Beans
 
 **Objectif :** Maîtriser le cycle de vie des beans Spring (initialisation/destruction) et la gestion des dépendances entre composants via la configuration Java.
 

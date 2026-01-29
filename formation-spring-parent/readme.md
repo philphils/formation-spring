@@ -6,8 +6,8 @@
 
 ## 1. Ajout de l'API des Annotations
 * Ajoutez la dépendance Maven suivante au module **"core"** :
-    * **Group ID :** `jakarta.annotation`
-    * **Artifact ID :** `jakarta.annotation-api`
+    * **Group ID :** `javax.annotation`
+    * **Artifact ID :** `javax.annotation-api`
 > **Pourquoi ?** Depuis Java 9, les annotations de cycle de vie ne sont plus incluses par défaut dans le JDK standard.
 
 ## 2. Injection de dépendance dans CacheDatabase

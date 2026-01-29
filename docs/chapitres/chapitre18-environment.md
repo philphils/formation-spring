@@ -49,4 +49,4 @@ environment.getProperty("ma.property");
 
 # Schéma Property Source
 
-![](./img/diapo_formation_spring_property_1.png)
+![](./img/diapo_formation_spring_property_1.png) <!-- .element: class="image-large" -->

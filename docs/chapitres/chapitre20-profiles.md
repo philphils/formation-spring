@@ -24,7 +24,7 @@
 
 * __On rattache un bean à un Profile avec l’annotation `@Profile("nom.du.profile")`__
 
-* __Cette annotation s’utilise sur un bean annoté `@Component` par ou dérivé ou sur une méthode `@Bean`__ 
+* __Cette annotation s’utilise sur un bean annoté `@Component` (ou annotation dérivée) ou sur une méthode `@Bean`__ 
 
 * __Le bean ne sera créé que si le profile mentionné par l’annotation est activé \(cf suite\)__ 
 

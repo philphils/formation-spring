@@ -13,7 +13,7 @@
 
 * __Spring propose un petit plugin Eclipse nommée Spring Tools Suite\, ou en version stand\-alone__
 
-* __Offre des fonctionnalités liées à Spring Boot__  * __\(démarrage appli\, autocomplétion properties\)\, Spring Rest \(liste des endpoints d’API\)__
+* __Offre des fonctionnalités liées à Spring Boot \(démarrage appli\, autocomplétion properties\)\, Spring Rest \(liste des endpoints d’API\)__
 
 * __Et propose une fenêtre « Spring Symbols » permettant de retrouver ses beans__
 
@@ -21,12 +21,12 @@
 --
 # Spring Symbols
 
-![](./img/diapo_formation_spring_15.png)
+![](./img/diapo_formation_spring_15.png) <!-- .element: class="image-large" -->
 
 
 --
 # Spring Symbols
 
 
-![](./img/diapo_formation_spring_16.png)
+![](./img/diapo_formation_spring_16.png) <!-- .element: class="image-large" -->
 

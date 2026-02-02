@@ -22,18 +22,20 @@
 
 
 --
-# Méthodes via annotations
+# `@PostConstruct` et `@PreDestroy`
 
 * __2 annotations permettant de configurer ces méthodes directement dans le bean__
 
-* __`@PostConstruct` et `@PreDestroy` permettent de définir les méthodes qui seront appelées après création et avant destruction__
-
 * __Ces annotations ne sont pas propres à Spring mais définies par la JSR 250__
 
-* __Pour Java 11 et ultérieur\, il est nécessaire d’ajouter la dépendance__  __javax\.annotation\-api pour en disposer__
+* __A partir de java 11, il est nécessaire d’ajouter des dépendances :__  
+
+    * __`javax.annotation-api` pour Spring 5 et versions antérieures__
+
+    * __`jakarta.annotation-api` pour Spring 6 et versions ultérieures__
 
 --
-# Méthodes via annotations
+# `@PostConstruct` et `@PreDestroy`
 
 * __Exemple de configuration connexion API :__
 

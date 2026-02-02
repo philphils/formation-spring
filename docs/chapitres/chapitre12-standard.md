@@ -32,9 +32,9 @@
 
 * __Possible aussi de remplacer `@Autowired` par `@Resource`__
 
-* __La différence avec `@Inject` est dans le type d’appairage__
+* __La différence avec `@Inject` est dans le mode d’appairage__
 
-* __Appairage par nom et non par type__
+* __Appairage par nom et pas par type__
 
 --
 # JSR 250 : `@Resource`
